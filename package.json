@@ -1,0 +1,34 @@
+{
+  "name": "dev-quotes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "unit": "babel-node ./node_modules/.bin/mocha test",
+    "coverage": "nyc --reporter=html npm run unit",
+    "watch": "webpack --watch",
+    "serve": "nodemon dist/bundle.js",
+    "start": "npm run watch & npm run serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.0",
+    "nodemon": "^2.0.6",
+    "nyc": "^15.1.0",
+    "sinon": "^9.2.0",
+    "sinon-chai": "^3.5.0",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.1.0",
+    "wepack-cli": "0.0.1-security"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9"
+  }
+}
