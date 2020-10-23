@@ -4,6 +4,7 @@
     ],
     "exclude": [
         "src/index.js",
+        "src/routes/*.js",
         "**/node_modules/**",
         "**/test/**",
         "**/coverage/**"

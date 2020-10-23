@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "unit": "babel-node ./node_modules/.bin/mocha test",
+    "unit": "babel-node ./node_modules/.bin/mocha test/*",
     "coverage": "nyc --reporter=html npm run unit",
     "watch": "webpack --watch",
     "serve": "nodemon dist/bundle.js",
@@ -24,8 +24,7 @@
     "sinon": "^9.2.0",
     "sinon-chai": "^3.5.0",
     "webpack": "^5.1.3",
-    "webpack-cli": "^4.1.0",
-    "wepack-cli": "0.0.1-security"
+    "webpack-cli": "^4.1.0"
   },
   "dependencies": {
     "express": "^4.17.1",
