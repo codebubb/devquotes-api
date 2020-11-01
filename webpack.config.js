@@ -1,9 +1,27 @@
 const path = require('path');
 module.exports = {
-    entry: './src/index.js',
+    mode: 'development',
+    entry: {
+        main: './src/index.js',
+        import: './src/import.js'
+    },
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: '[name].js',
+        path: __dirname + '/dist'
+    },
+    module: {
+
+        rules: [
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                options: { cacheDirectory: true },
+                exclude: /node_modules/
+            }
+        ],
     },
     target: 'node',
+    watchOptions: {
+        ignored: /node_modules/,
+    }
 };

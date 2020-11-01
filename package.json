@@ -7,7 +7,7 @@
     "unit": "babel-node ./node_modules/.bin/mocha test/*",
     "coverage": "nyc --reporter=html npm run unit",
     "watch": "webpack --watch",
-    "serve": "nodemon dist/bundle.js",
+    "serve": "nodemon dist/main.js",
     "start": "npm run watch & npm run serve"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
     "chai": "^4.2.0",
     "mocha": "^8.2.0",
     "nodemon": "^2.0.6",

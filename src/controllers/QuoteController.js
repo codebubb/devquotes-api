@@ -1,9 +1,25 @@
 import Quote from '../models/Quote';
 import mongoose from 'mongoose';
+import appConfig from '../app.config';
+
+const transformQuote = (a) => {
+    const { __v, _id, ...quote } = a;
+    return {
+        id: _id,
+        link: `${appConfig.baseUrl}/quote/${_id}`,
+        ...quote,
+    }
+};
 
 const getRandomQuote = async (req, res) => {
-    const sample = await Quote.aggregate().sample(1);
-    return res.json(sample);
+    try {
+        const sample = await Quote.aggregate().sample(1);
+
+        return res.json(transformQuote(sample[0]));
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: 'Internal Server Error' });
+    }
 };
 
 const getQuoteById = async (req, res) => {
@@ -13,12 +29,15 @@ const getQuoteById = async (req, res) => {
         if (!result) {
              return res.json([]); // 404
         }
-
-        return res.json(result);
+        const json = transformQuote(result.toJSON());
+        return res.json(json);
     } catch (error) {
-        return res.s    .json({ message: 'Internal Server Error' });
+        console.log(error);
+        return res.json({ message: 'Internal Server Error' });
     }
 };
+
+
 
 export {
     getRandomQuote,

@@ -4,14 +4,17 @@ const { Schema } = mongoose;
 
 const quoteSchema = new Schema(
     {
-        quote: String,
+        text: String,
         author: String,
+        __v: { type: Number, select: false },
     },
     {
         timestamps: true,
     }
 );
 
+
+
 const Quote = mongoose.model('Quote', quoteSchema);
 
-export default Quote ;
+export default Quote;
