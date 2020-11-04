@@ -27,6 +27,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
+            echo $SSH_USER@$SSH_HOST
             scp -r dist/* $SSH_USER@$SSH_HOST:apps/devquotes-api
 orbs:
   node: circleci/node@4.1.0
