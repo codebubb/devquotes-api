@@ -23,7 +23,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - f7:ba:96:7b:27:de:72:71:cc:9f:f1:c0:f6:7b:f7:90
+            - d0:5d:03:5d:99:70:f4:7c:c5:a6:00:6c:11:1e:a0:89
       - run:
           name: Deploy Over SSH
           command: |
@@ -36,7 +36,9 @@ workflows:
   build-and-deploy:
     jobs:
       - test
-      - build
+      - build:
+          requires:
+            - test
       - deploy:
           requires:
             - build # only deploy once build job has completed
