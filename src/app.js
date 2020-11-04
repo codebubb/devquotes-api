@@ -15,6 +15,6 @@ export class DevQuotesApp {
     }
 
     serve() {
-        this.app.listen(3000, () => console.log('App is listening...'));
+        this.app.listen(appConfig.port, () => console.log('DevQuotes API listening...'));
     }
 } 
