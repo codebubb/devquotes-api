@@ -33,14 +33,9 @@ orbs:
   node: circleci/node@4.1.0
 version: 2.1
 workflows:
-  test_my_app:
-    jobs:
-      - test
-  build:
-    jobs:
-      - build
   build-and-deploy:
     jobs:
+      - test
       - build
       - deploy:
           requires:
