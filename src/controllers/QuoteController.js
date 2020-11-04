@@ -2,8 +2,8 @@ import Quote from '../models/Quote';
 import mongoose from 'mongoose';
 import appConfig from '../app.config';
 
-const transformQuote = (a) => {
-    const { __v, _id, ...quote } = a;
+const transformQuote = rawQuote => {
+    const { __v, _id, ...quote } = rawQuote;
     return {
         id: _id,
         link: `${appConfig.baseUrl}/quote/${_id}`,
