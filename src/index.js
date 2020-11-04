@@ -1,3 +1,3 @@
-const { DevQuotesApp } = require("./app");
+import { DevQuotesApp } from './app';
 
 new DevQuotesApp().serve();

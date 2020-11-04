@@ -1,6 +1,5 @@
 const path = require('path');
 module.exports = {
-    mode: 'development',
     entry: {
         main: './src/index.js',
         import: './src/import.js'
@@ -10,7 +9,6 @@ module.exports = {
         path: __dirname + '/dist'
     },
     module: {
-
         rules: [
             {
                 test: /\.js$/,

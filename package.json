@@ -6,9 +6,12 @@
   "scripts": {
     "unit": "babel-node ./node_modules/.bin/mocha test/*",
     "coverage": "nyc --reporter=html npm run unit",
-    "watch": "webpack --watch",
-    "serve": "nodemon dist/main.js",
-    "start": "npm run watch & npm run serve"
+    "watch:build": "webpack --watch --mode=development",
+    "watch:serve": "nodemon dist/main.js",
+    "serve": "node dist/main.js",
+    "start": "npm run watch:build & npm run watch:serve",
+    "build": "webpack --mode=production",
+    "import": "node dist/import"
   },
   "keywords": [],
   "author": "",
