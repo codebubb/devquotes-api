@@ -1,4 +1,4 @@
 export default {
-    databaseUrl: 'mongodb://localhost/devquotes',
-    baseUrl: 'http://localhost:3000',
+    databaseUrl: process.env.DEVQUOTES_DB_URL,
+    baseUrl: process.env.DEVQUOTES_URL,
 };
