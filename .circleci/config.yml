@@ -12,15 +12,22 @@ jobs:
     executor:
       name: node/default
       tag: '13.14'
+    working_directory: ~/devquotes-api
     steps:
       - checkout
       - node/install-packages
       - run:
           command: npm run build
+      - persist_to_workspace:
+          root: /home/circleci/devquotes-api
+          paths: 
+              - dist
   deploy:
     machine:
        enabled: true
     steps:
+      - attach_workspace:
+          at: /tmp/dist
       - add_ssh_keys:
           fingerprints:
             - d0:5d:03:5d:99:70:f4:7c:c5:a6:00:6c:11:1e:a0:89
@@ -28,7 +35,7 @@ jobs:
           name: Deploy Over SSH
           command: |
             echo $SSH_USER@$SSH_HOST
-            scp -r dist/* $SSH_USER@$SSH_HOST:apps/devquotes-api
+            scp -r /tmp/dist/* $SSH_USER@$SSH_HOST:apps/devquotes-api
 orbs:
   node: circleci/node@4.1.0
 version: 2.1
